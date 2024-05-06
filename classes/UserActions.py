@@ -2,6 +2,8 @@
 import re
 
 from classes.DtataChecker import DataChecker
+from classes.FileManager import FileManager
+from constans import BALANCE_FILE_NAME
 from exceptions.InputExeptions import NotEnoughtArgs, NotValidSum, WrongOperationType
 
 class UserActions:
@@ -32,7 +34,12 @@ class UserActions:
             response: str = self.user_input_data()
         return response
         
-    
+
+    def get_ballance(self) -> str:
+        file_manager: FileManager = FileManager()
+        balance = [x for x in file_manager.read_file(BALANCE_FILE_NAME)]
+        return f"Сейчас на баллансе: {balance[0]}"
+        
 
             
 

@@ -10,7 +10,7 @@ def make_choice(response: int) -> None:
     file_manager: FileManager = FileManager()
     match response:
         case "1":
-            print(file_manager.read_file(BALANCE_FILE_NAME))
+            print(user_actons.get_ballance())
         case "2":
             checked_data: str = user_actons.user_input_data()
             file_manager.append_row(WALLET_FILE_NAME, ";".join(checked_data))
@@ -19,7 +19,7 @@ def make_choice(response: int) -> None:
             new_ballance = str(balance + change_sum)
             file_manager.update_file(BALANCE_FILE_NAME, new_ballance, "w+")
         case "3":
-            pass
+            file_manager.read_file()
         case _:
             print("Выберите один из предложенных вариантов")
             
