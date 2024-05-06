@@ -1,5 +1,6 @@
 import re
-from exceptions.InputExeptions import NotEnoughtArgs
+from exceptions.InputExeptions import NotEnoughtArgs, NotValidSum, WrongOperationType
+from constans import TYPES_OF_RECORD
 
 class DataChecker():
 
@@ -15,5 +16,11 @@ class DataChecker():
     def check_data(self, data: list) -> list:
         if len(data) < 4:
             raise NotEnoughtArgs()
-        date = self.check_date_format(data[0])
+        if data[1] not in TYPES_OF_RECORD:
+            raise WrongOperationType()
+        try:
+            int(data[3])
+        except ValueError:
+            raise NotValidSum()
+        date: str = self.check_date_format(data[0])
         return [date, data[1], data[2], data[3]]
