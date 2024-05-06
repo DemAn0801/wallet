@@ -65,4 +65,4 @@ class UserActions:
     def get_ballance(self) -> str:
         file_manager: FileManager = FileManager()
         balance = [x for x in file_manager.read_file(BALANCE_FILE_NAME)]
-        return f"Сейчас на баллансе: {balance[0]['Баланс']}"
+        return balance[0]['Баланс']
