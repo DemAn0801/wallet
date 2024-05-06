@@ -1,5 +1,5 @@
-class NotEnoughtArgs(Exception):
-    def __init__(self, message="Недостаточно аргументов"):
+class WrongArgumentsQuantity(Exception):
+    def __init__(self, message="Неверное количество аргументов"):
         self.message = message
         super().__init__(self.message)
 
