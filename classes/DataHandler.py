@@ -3,7 +3,7 @@ import re
 
 class DataHandler:
     
-    def input_data(self, text: str) -> list:
+    def get_data(self, text: str) -> list:
         print(text)
         return input().split(",")
         

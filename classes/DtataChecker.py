@@ -1,8 +1,8 @@
 import re
+from exceptions.InputExeptions import NotEnoughtArgs
 
+class DataChecker():
 
-class DataChecker:
-    
     def check_date_format(self, date: str) -> str:
         if not re.match(r"\d{4}\-\d{2}\-\d{2}", date): 
             print("Неверный формат даты.\n\
@@ -13,5 +13,7 @@ class DataChecker:
         return date
     
     def check_data(self, data: list) -> list:
+        if len(data) < 4:
+            raise NotEnoughtArgs()
         date = self.check_date_format(data[0])
         return [date, data[1], data[2], data[3]]
