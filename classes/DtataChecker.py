@@ -8,7 +8,6 @@ from constans import TYPES_OF_RECORD
 
 
 class DataChecker:
-
     def check_date_format(self, date: str) -> str:
         if not re.match(r"\d{4}\-\d{2}\-\d{2}", date):
             new_date = input(
