@@ -10,7 +10,7 @@ class FileManager:
             for line in spamreader:
                 yield line
 
-    def append_row(self, file_name: str, row: str, open_parametr: str = "a", headers: list = ["Дата", "Категория", "Описание", "Сумма"]) -> None:
+    def create_row(self, file_name: str, row: list, open_parametr: str = "a", headers: list = ["Дата", "Категория", "Описание", "Сумма"]) -> None:
         with open(file_name, open_parametr, newline="") as f:
             dict_writer = csv.DictWriter(f, fieldnames=headers, delimiter=";")
             if open_parametr == "w+":
@@ -19,8 +19,8 @@ class FileManager:
         
 
 
-    def update_file(self, file_name: str, row: str, open_parametr: str = "w+", headers: list =["Баланс"]) -> None:
-        self.append_row(file_name, row, open_parametr, headers)
+    def update_file(self, file_name: str, row: list, open_parametr: str = "w+", headers: list =["Баланс"]) -> None:
+        self.create_row(file_name, row, open_parametr, headers)
 
     def find_record(self, data: list) -> int:
         searching_tuple: tuple = (data[0], data[1], data[2])

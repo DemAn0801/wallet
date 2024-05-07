@@ -13,7 +13,7 @@ def make_choice(response: int) -> None:
             print(f"Сейчас на баллансе {user_actons.get_ballance()}")
         case "2":
             checked_data: list = user_actons.user_input_data_for_create_record()
-            file_manager.append_row(
+            file_manager.create_row(
                 WALLET_FILE_NAME,
                 [
                     {
