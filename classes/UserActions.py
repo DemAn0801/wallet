@@ -1,6 +1,4 @@
 # from main import main
-import re
-
 from classes.DtataChecker import DataChecker
 from classes.FileManager import FileManager
 from constans import BALANCE_FILE_NAME
@@ -12,7 +10,6 @@ from exceptions.InputExeptions import (
 
 
 class UserActions:
-
     def get_data(self, text: str) -> list:
         return input(text).split(",")
 
@@ -40,8 +37,8 @@ class UserActions:
         return response
 
     def user_input_data_for_change_record(self) -> list:
-        checker: DataChecker = DataChecker()
-        user_actions: UserActions = UserActions()
+        checker = DataChecker()
+        user_actions = UserActions()
         data: list = user_actions.get_data(
             "Введите через запятую, без пробелов, дату, тип операции, описание, сумму,\n\
                         например: 2024-12-01,Доход,Зарплата\n\
@@ -63,6 +60,6 @@ class UserActions:
         return response
 
     def get_ballance(self) -> str:
-        file_manager: FileManager = FileManager()
-        balance = [x for x in file_manager.read_file(BALANCE_FILE_NAME)]
-        return f"Сейчас на баллансе: {balance[0]['Баланс']}"
+        file_manager = FileManager()
+        balance: list = [x for x in file_manager.read_file(BALANCE_FILE_NAME)]
+        return balance[0]["Баланс"]
